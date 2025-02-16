@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QQJ53BJE7Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QQJ53BJE7Q');
+  </script>
+  <meta charset="UTF-8">
+  <title>Styled ASCII Art - Blue Gradient</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    // Get the parent wrapper and all ascii-art elements inside it.
+    const asciiWrapper = document.querySelector('.ascii-art-wrapper');
+    const asciiElements = asciiWrapper.querySelectorAll('.ascii-art');
+
+    // Hide all ascii-art elements.
+    asciiElements.forEach(el => {
+      if (!el.classList.contains('hide')) {
+        el.classList.add('hide');
+      }
+    });
+
+    // Variable to keep track of the currently visible element.
+    let currentVisible = null;
+
+    // Function to randomly display one ascii-art element.
+    function showRandom() {
+      // Hide the currently visible element, if any.
+      if (currentVisible) {
+        currentVisible.classList.add('hide');
+      }
+      // Convert NodeList to Array and choose a random index.
+      const allElements = Array.from(asciiElements);
+      const randomIndex = Math.floor(Math.random() * allElements.length);
+      // Remove the 'hide' class from the chosen element.
+      const newElement = allElements[randomIndex];
+      newElement.classList.remove('hide');
+      // Update the current visible element.
+      currentVisible = newElement;
+    }
+
+    // Initially show one random ascii-art element.
+    showRandom();
+
+    // Variable to hold the cycling interval.
+    let cycleInterval = null;
+
+    // When the user hovers over the wrapper, start cycling.
+    asciiWrapper.addEventListener('mouseenter', function() {
+      // Only start a new interval if one isn't already running.
+      if (!cycleInterval) {
+        cycleInterval = setInterval(showRandom, 50); // change every 2 seconds
+      }
+    });
+
+    // When the user leaves the wrapper, stop cycling.
+    asciiWrapper.addEventListener('mouseleave', function() {
+      clearInterval(cycleInterval);
+      cycleInterval = null;
+    });
+  });
+</script>
+
+  <style>
+    body {
+      background: #000;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 1.22rem;
+      margin: 0;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out 1s forwards;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+      margin-block-start: 0;
+      margin-top: -20px;
+    }
+
+    p {
+      animation: fadeIn 5s ease-in-out 2s forwards, hueShift 1s ease-in-out 2s infinite;
+      color: #fff;
+      opacity: 0;
+      margin-top: 8rem;
+      text-transform: uppercase;
+      letter-spacing: 7px;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .ascii-art-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      flex-direction: column;
+      height: 200px;
+      position: relative;
+    }
+
+    .ascii-art {
+      font-family: monospace;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 5px;
+      background: linear-gradient(#a3d5ff, #7cbaff);
+      background: -webkit-linear-gradient(#a3d5ff, #7cbaff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      animation: textGradientShift 1s,
+      zoomInZoomOut 1s ease-in-out 1s,
+      hueShift 10s ease-in-out 2s infinite;
+      left: 50%;
+      transform: translateX(-50%) scale(0.5);
+      margin: 0;
+      padding: 0;
+      opacity: 1;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .hide {
+      opacity: 0;
+    }
+
+    {# .ascii-art:hover {
+      animation: hueShift 1s infinite, bounce 1s infinite;
+    } #}
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0) scale(0.5);
+      }
+      50% {
+        transform: translateY(-10px) scale(0.5);
+      }
+
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomInZoomOut {
+      0% {
+        transform: translateX(-50%) scale(0.5);
+      }
+      25% {
+        transform: translateX(-50%) scale(.35);
+      }
+      50% {
+        transform: translateX(-50%) scale(4);
+      }
+      100% {
+        transform: translateX(-50%) scale(0.5);
+      }
+
+    }
+
+    @keyframes textGradientShift {
+      0% {
+        background: linear-gradient(#a3d5ff, #7cbaff);
+        background: -webkit-linear-gradient(#a3d5ff, #7cbaff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      6.25% {
+        background: linear-gradient(#94ccff, #6eb2ff);
+        background: -webkit-linear-gradient(#94ccff, #6eb2ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      12.5% {
+        background: linear-gradient(#85c3ff, #5fa9ff);
+        background: -webkit-linear-gradient(#85c3ff, #5fa9ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      18.75% {
+        background: linear-gradient(#76baff, #50a0ff);
+        background: -webkit-linear-gradient(#76baff, #50a0ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      25% {
+        background: linear-gradient(#67b1ff, #4197ff);
+        background: -webkit-linear-gradient(#67b1ff, #4197ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      31.25% {
+        background: linear-gradient(#58a8ff, #328eff);
+        background: -webkit-linear-gradient(#58a8ff, #328eff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      37.5% {
+        background: linear-gradient(#499fff, #2375ff);
+        background: -webkit-linear-gradient(#499fff, #2375ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      43.75% {
+        background: linear-gradient(#3a96ff, #146cff);
+        background: -webkit-linear-gradient(#3a96ff, #146cff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      50% {
+        background: linear-gradient(#2b8dff, #0553ff);
+        background: -webkit-linear-gradient(#2b8dff, #0553ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      56.25% {
+        background: linear-gradient(#3a96ff, #146cff);
+        background: -webkit-linear-gradient(#3a96ff, #146cff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      62.5% {
+        background: linear-gradient(#499fff, #2375ff);
+        background: -webkit-linear-gradient(#499fff, #2375ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      68.75% {
+        background: linear-gradient(#58a8ff, #328eff);
+        background: -webkit-linear-gradient(#58a8ff, #328eff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      75% {
+        background: linear-gradient(#67b1ff, #4197ff);
+        background: -webkit-linear-gradient(#67b1ff, #4197ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      81.25% {
+        background: linear-gradient(#76baff, #50a0ff);
+        background: -webkit-linear-gradient(#76baff, #50a0ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      87.5% {
+        background: linear-gradient(#85c3ff, #5fa9ff);
+        background: -webkit-linear-gradient(#85c3ff, #5fa9ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      93.75% {
+        background: linear-gradient(#94ccff, #6eb2ff);
+        background: -webkit-linear-gradient(#94ccff, #6eb2ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      100% {
+        background: linear-gradient(#a3d5ff, #7cbaff);
+        background: -webkit-linear-gradient(#a3d5ff, #7cbaff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    @keyframes hueShift {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes rainbowFade {
+  0% {
+    background: linear-gradient(red, red);
+    background: -webkit-linear-gradient(red, red);
+    -webkit-background-clip: text;
+    filter: hue-rotate(0deg);
+  }
+  16.66% {
+    background: linear-gradient(orange, orange);
+    background: -webkit-linear-gradient(orange, orange);
+        -webkit-background-clip: text;
+  }
+  33.33% {
+    background: linear-gradient(yellow, yellow);
+    background: -webkit-linear-gradient(yellow, yellow);
+        -webkit-background-clip: text;
+  }
+  50% {
+    background: linear-gradient(green, green);
+    background: -webkit-linear-gradient(green, green);
+        -webkit-background-clip: text;
+  }
+  66.66% {
+    background: linear-gradient(blue, blue);
+    background: -webkit-linear-gradient(blue, blue);
+        -webkit-background-clip: text;
+  }
+  83.33% {
+    background: linear-gradient(indigo, indigo);
+    background: -webkit-linear-gradient(indigo, indigo);
+        -webkit-background-clip: text;
+  }
+  100% {
+    background: linear-gradient(violet, violet);
+    background: -webkit-linear-gradient(violet, violet);
+        -webkit-background-clip: text;
+         filter: hue-rotate(360deg);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="ascii-art-wrapper">
+    <pre class="ascii-art">
+░▒▓███████▓▒░░▒▓████████▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓███████▓▒░▒▓███████▓▒░        ░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓██████████████▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░   ░▒▓████▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓██████▓▒░ ░▒▓███████▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓██▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░
+░▒▓███████▓▒░░▒▓████████▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓██▓▒░░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░</pre>
+    <pre class="ascii-art">
+██████  ███████ ███████  ██  ██████  ███    ██     ██████  ██████  ███    ███
+██   ██ ██      ██      ███ ██       ████   ██    ██      ██    ██ ████  ████
+██   ██ █████   ███████  ██ ███████  ██ ██  ██    ██      ██    ██ ██ ████ ██
+██   ██ ██           ██  ██ ██    ██ ██  ██ ██    ██      ██    ██ ██  ██  ██
+██████  ███████ ███████  ██  ██████  ██   ████ ██  ██████  ██████  ██      ██</pre>
+
+    <pre class="ascii-art hide">
+__/\\\\\\\\\\\\_____/\\\\\\\\\\\\\\\___/\\\\\\\\\\\\\\\_______/\\\____________/\\\\\__/\\\\\_____/\\\_______________________________________________________
+ _\/\\\////////\\\__\/\\\///////////___\/\\\///////////____/\\\\\\\________/\\\\////__\/\\\\\\___\/\\\_______________________________________________________
+  _\/\\\______\//\\\_\/\\\______________\/\\\______________\/////\\\_____/\\\///_______\/\\\/\\\__\/\\\_______________________________________________________
+   _\/\\\_______\/\\\_\/\\\\\\\\\\\______\/\\\\\\\\\\\\_________\/\\\___/\\\\\\\\\\\____\/\\\//\\\_\/\\\___________/\\\\\\\\_____/\\\\\_______/\\\\\__/\\\\\___
+    _\/\\\_______\/\\\_\/\\\///////_______\////////////\\\_______\/\\\__/\\\\///////\\\__\/\\\\//\\\\/\\\_________/\\\//////____/\\\///\\\___/\\\///\\\\\///\\\_
+     _\/\\\_______\/\\\_\/\\\_________________________\//\\\______\/\\\_\/\\\______\//\\\_\/\\\_\//\\\/\\\________/\\\__________/\\\__\//\\\_\/\\\_\//\\\__\/\\\_
+      _\/\\\_______/\\\__\/\\\______________/\\\________\/\\\______\/\\\_\//\\\______/\\\__\/\\\__\//\\\\\\_______\//\\\________\//\\\__/\\\__\/\\\__\/\\\__\/\\\_
+       _\/\\\\\\\\\\\\/___\/\\\\\\\\\\\\\\\_\//\\\\\\\\\\\\\/_______\/\\\__\///\\\\\\\\\/___\/\\\___\//\\\\\__/\\\__\///\\\\\\\\__\///\\\\\/___\/\\\__\/\\\__\/\\\_
+        _\////////////_____\///////////////___\/////////////_________\///_____\/////////_____\///_____\/////__\///_____\////////_____\/////_____\///___\///___\///__</pre>
+
+    <pre class="ascii-art hide">
+ _|_|_|    _|_|_|_|  _|_|_|_|    _|    _|_|_|  _|      _|
+ _|    _|  _|        _|        _|_|  _|        _|_|    _|        _|_|_|    _|_|    _|_|_|  _|_|
+ _|    _|  _|_|_|    _|_|_|      _|  _|_|_|    _|  _|  _|      _|        _|    _|  _|    _|    _|
+ _|    _|  _|              _|    _|  _|    _|  _|    _|_|      _|        _|    _|  _|    _|    _|
+ _|_|_|    _|_|_|_|  _|_|_|      _|    _|_|    _|      _|  _|    _|_|_|    _|_|    _|    _|    _|</pre>
+
+    <pre class="ascii-art hide">
+8888888b.  8888888888 888888888  d888   .d8888b.  888b    888
+888  "Y88b 888        888       d8888  d88P  Y88b 8888b   888
+888    888 888        888         888  888        88888b  888
+888    888 8888888    8888888b.   888  888d888b.  888Y88b 888      .d8888b .d88b.  88888b.d88b.
+888    888 888             "Y88b  888  888P "Y88b 888 Y88b888     d88P"   d88""88b 888 "888 "88b
+888    888 888               888  888  888    888 888  Y88888     888     888  888 888  888  888
+888  .d88P 888        Y88b  d88P  888  Y88b  d88P 888   Y8888 d8b Y88b.   Y88..88P 888  888  888
+8888888P"  8888888888  "Y8888P" 8888888 "Y8888P"  888    Y888 Y8P  "Y8888P "Y88P"  888  888  888</pre>
+
+    <pre class="ascii-art hide">
+
+    _  _  _  _     _  _  _  _  _  _  _  _  _  _    _        _  _  _   _           _
+   (_)(_)(_)(_)   (_)(_)(_)(_)(_)(_)(_)(_)(_)(_)_ (_)     _(_)(_)(_) (_) _       (_)
+    (_)      (_)_ (_)            (_) _  _  _   (_)(_)   _(_)         (_)(_)_     (_)            _  _  _     _  _  _      _  _   _  _
+    (_)        (_)(_) _  _       (_)(_)(_)(_) _   (_)  (_) _  _  _   (_)  (_)_   (_)          _(_)(_)(_) _ (_)(_)(_) _  (_)(_)_(_)(_)
+    (_)        (_)(_)(_)(_)                  (_)  (_)  (_)(_)(_)(_)_ (_)    (_)_ (_)         (_)        (_)         (_)(_)   (_)   (_)
+    (_)       _(_)(_)             _          (_)  (_)  (_)        (_)(_)      (_)(_)  _  _   (_)        (_)         (_)(_)   (_)   (_)
+    (_)_  _  (_)  (_) _  _  _  _ (_) _  _  _ (_)_ (_) _(_)_  _  _ (_)(_)         (_) (_)(_)  (_)_  _  _ (_) _  _  _ (_)(_)   (_)   (_)
+   (_)(_)(_)(_)   (_)(_)(_)(_)(_)   (_)(_)(_)  (_)(_)(_) (_)(_)(_)   (_)         (_) (_)(_)    (_)(_)(_)   (_)(_)(_)   (_)   (_)   (_)</pre>
+
+    <pre class="ascii-art hide">
+  ____  _____ ____  _  __   _   _
+ |  _ \| ____| ___|/ |/ /_ | \ | |  ___ ___  _ __ ___
+ | | | |  _| |___ \| | '_ \|  \| | / __/ _ \| '_ ` _ \
+ | |_| | |___ ___) | | (_) | |\  || (_| (_) | | | | | |
+ |____/|_____|____/|_|\___/|_| \_(_)___\___/|_| |_| |_|</pre>
+
+    <pre class="ascii-art hide">
+    _/_/_/    _/_/_/_/  _/_/_/_/    _/    _/_/_/  _/      _/
+   _/    _/  _/        _/        _/_/  _/        _/_/    _/        _/_/_/    _/_/    _/_/_/  _/_/
+  _/    _/  _/_/_/    _/_/_/      _/  _/_/_/    _/  _/  _/      _/        _/    _/  _/    _/    _/
+ _/    _/  _/              _/    _/  _/    _/  _/    _/_/      _/        _/    _/  _/    _/    _/
+_/_/_/    _/_/_/_/  _/_/_/      _/    _/_/    _/      _/  _/    _/_/_/    _/_/    _/    _/    _/</pre>
+    <pre class="ascii-art hide">
+{_____    {________                         {___     {__
+{__   {__ {__      {__ {___ {__      {__    {_ {__   {__
+{__    {__{__      {__       {__    {__     {__ {__  {__      {___   {__    {___ {__ {__
+{__    {__{______  {___      {__   {__      {__  {__ {__    {__    {__  {__  {__  {_  {__
+{__    {__{__          {__   {__ {_    {__  {__   {_ {__   {__    {__    {__ {__  {_  {__
+{__   {__ {__            {__ {__ {__     {__{__    {_ __    {__    {__  {__  {__  {_  {__
+{_____    {________{___ {__ {____  {__ {__  {__      {__{__   {___   {__    {___  {_  {__</pre>
+    <pre class="ascii-art hide">
+######  ####### #######    #    #####  #     #
+#     # #       #         ##   #     # ##    #      ####   ####  #    #
+#     # #       #        # #   #       # #   #     #    # #    # ##  ##
+#     # #####   ######     #   ######  #  #  #     #      #    # # ## #
+#     # #             #    #   #     # #   # # ### #      #    # #    #
+#     # #       #     #    #   #     # #    ## ### #    # #    # #    #
+######  #######  #####   #####  #####  #     # ###  ####   ####  #    #</pre>
+
+    <pre class="ascii-art hide">
+ _____   ______  _____  ___   _____   _     _
+(_____) (______)(_____)(___) (_____) (_)   (_)
+(_)  (_)(_)__   (_)___(_)(_)(_)___   (__)_ (_)      ___  ___    __   __
+(_)  (_)(____)  (_____)  (_)(_____)_ (_)(_)(_)    _(___)(___)  (__)_(__)
+(_)__(_)(_)____  ____(_) (_)(_)___(_)(_)  (__) _ (_)___(_)_(_)(_) (_) (_)
+(_____) (______)(_____)  (_) (_____) (_)   (_)(_) (____)(___) (_) (_) (_)</pre>
+
+    <pre class="ascii-art hide">
+[.....    [........                         [...     [..
+[..   [.. [..      [.. [... [..      [..    [. [..   [..
+[..    [..[..      [..       [..    [..     [.. [..  [..      [...   [..    [... [.. [..
+[..    [..[......  [...      [..   [..      [..  [.. [..    [..    [..  [..  [..  [.  [..
+[..    [..[..          [..   [.. [.    [..  [..   [. [..   [..    [..    [.. [..  [.  [..
+[..   [.. [..            [.. [.. [..     [..[..    [. ..    [..    [..  [..  [..  [.  [..
+[.....    [........[... [.. [....  [.. [..  [..      [..[..   [...   [..    [...  [.  [..</pre>
+    <pre class="ascii-art hide">
+██████╗ ███████╗███████╗ ██╗ ██████╗ ███╗   ██╗    ██████╗ ██████╗ ███╗   ███╗
+██╔══██╗██╔════╝██╔════╝███║██╔════╝ ████╗  ██║   ██╔════╝██╔═══██╗████╗ ████║
+██║  ██║█████╗  ███████╗╚██║███████╗ ██╔██╗ ██║   ██║     ██║   ██║██╔████╔██║
+██║  ██║██╔══╝  ╚════██║ ██║██╔═══██╗██║╚██╗██║   ██║     ██║   ██║██║╚██╔╝██║
+██████╔╝███████╗███████║ ██║╚██████╔╝██║ ╚████║██╗╚██████╗╚██████╔╝██║ ╚═╝ ██║
+╚═════╝ ╚══════╝╚══════╝ ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝</pre>
+
+    <pre class="ascii-art hide">
+_/////    _////////                          _///     _//
+_//   _// _//      _// _///  _//      _//    _/ _//   _//
+_//    _//_//      _//        _//    _//     _// _//  _//      _///   _//    _/// _// _//
+_//    _//_//////  _///       _//   _//      _//  _// _//    _//    _//  _//  _//  _/  _//
+_//    _//_//          _//    _// _/    _//  _//   _/ _//   _//    _//    _// _//  _/  _//
+_//   _// _//            _//  _// _//     _//_//    _/ //    _//    _//  _//  _//  _/  _//
+_/////    _////////_/// _// _/////  _// _//  _//      _//_//   _///   _//    _///  _/  _//</pre>
+
+    <pre class="ascii-art hide">
+O)))))    O))))))))                         O)))     O))
+O))   O)) O))      O)) O))) O))      O))    O) O))   O))
+O))    O))O))      O))       O))    O))     O)) O))  O))      O)))   O))    O))) O)) O))
+O))    O))O))))))  O)))      O))   O))      O))  O)) O))    O))    O))  O))  O))  O)  O))
+O))    O))O))          O))   O)) O)    O))  O))   O) O))   O))    O))    O)) O))  O)  O))
+O))   O)) O))            O)) O)) O))     O))O))    O) ))    O))    O))  O))  O))  O)  O))
+O)))))    O))))))))O))) O)) O))))  O)) O))  O))      O))O))   O)))   O))    O)))  O)  O))</pre>
+
+    <pre class="ascii-art">
+ ██████████   ██████████ ██████████ ████   ████████  ██████   █████
+░░███░░░░███ ░░███░░░░░█░███░░░░░░█░░███  ███░░░░███░░██████ ░░███
+ ░███   ░░███ ░███  █ ░ ░███     ░  ░███ ░███   ░░░  ░███░███ ░███      ██████   ██████  █████████████
+ ░███    ░███ ░██████   ░█████████  ░███ ░█████████  ░███░░███░███     ███░░███ ███░░███░░███░░███░░███
+ ░███    ░███ ░███░░█   ░░░░░░░░███ ░███ ░███░░░░███ ░███ ░░██████    ░███ ░░░ ░███ ░███ ░███ ░███ ░███
+ ░███    ███  ░███ ░   █ ███   ░███ ░███ ░███   ░███ ░███  ░░█████    ░███  ███░███ ░███ ░███ ░███ ░███
+ ██████████   ██████████░░████████  █████░░████████  █████  ░░█████ ██░░██████ ░░██████  █████░███ █████
+░░░░░░░░░░   ░░░░░░░░░░  ░░░░░░░░  ░░░░░  ░░░░░░░░  ░░░░░    ░░░░░ ░░  ░░░░░░   ░░░░░░  ░░░░░ ░░░ ░░░░░</pre>
+    <pre class="ascii-art hide">
+'||'''|. '||''''| ||''''  ||   ,,,,  '||\   ||`
+ ||   ||  ||   .  ||     '||  ||   '  ||\\  ||
+ ||   ||  ||'''|  `'''||  ||  ||''|,  || \\ ||     .|'', .|''|, '||),,(|,
+ ||   ||  ||          ||  ||  ||  ||  ||  \\||     ||    ||  ||  || || ||
+.||...|' .||....| ....|' .||. `|..|' .||   \||. .. `|..' `|..|' .||    ||.</pre>
+
+    <pre class="ascii-art hide">
+       _            _          _______     _                       _            _                  _             _            _   _
+      /\ \         /\ \       / ___  /\   / /\                   /\ \          /\ \     _        /\ \           /\ \         /\_\/\_\ _
+     /  \ \____   /  \ \     / /\__\ \ \ / /  \                 /  \ \        /  \ \   /\_\     /  \ \         /  \ \       / / / / //\_\
+    / /\ \_____\ / /\ \ \   / / /   \_\//_/ /\ \               / /\ \_\      / /\ \ \_/ / /    / /\ \ \       / /\ \ \     /\ \/ \ \/ / /
+   / / /\/___  // / /\ \_\ / / /        \_\/\ \ \             / / /\/_/     / / /\ \___/ /    / / /\ \ \     / / /\ \ \   /  \____\__/ /
+  / / /   / / // /_/_ \/_/ \ \ \             \ \ \           / /_/_        / / /  \/____/    / / /  \ \_\   / / /  \ \_\ / /\/________/
+ / / /   / / // /____/\     \ \ \             \ \ \         / /___/\      / / /    / / /    / / /    \/_/  / / /   / / // / /\/_// / /
+/ / /   / / // /\____\/      \ \ \             \ \ \       / /\__ \ \    / / /    / / /    / / /          / / /   / / // / /    / / /
+\ \ \__/ / // / /______  ____/ / /            __\ \ \___  / / /__\ \ \  / / /    / / /_   / / /________  / / /___/ / // / /    / / /
+ \ \___\/ // / /_______\/_____/ /            /___\_\/__/\/ / /____\ \ \/ / /    / / //\_\/ / /_________\/ / /____\/ / \/_/    / / /
+  \/_____/ \/__________/\_____\/             \_________\/\/__________\/\/_/     \/_/ \/_/\/____________/\/_________/          \/_/</pre>
+
+    <pre class="ascii-art hide">
+DDDDD   EEEEEEE 555555   1    666   NN   NN
+DD  DD  EE      55      111  66     NNN  NN       cccc  oooo  mm mm mmmm
+DD   DD EEEEE   555555   11 666666  NN N NN     cc     oo  oo mmm  mm  mm
+DD   DD EE         5555  11 66   66 NN  NNN ... cc     oo  oo mmm  mm  mm
+DDDDDD  EEEEEEE 555555  111  66666  NN   NN ...  ccccc  oooo  mmm  mm  mm</pre>
+
+    <pre class="ascii-art hide">
+     _/\/\/\/\/\____/\/\/\/\/\/\__/\/\/\/\/\/\____/\/\____/\/\/\/\____/\/\____/\/\_______________________________________________
+    _/\/\____/\/\__/\____________/\/\__________/\/\/\__/\/\__________/\/\/\__/\/\__________/\/\/\/\____/\/\/\____/\/\/\__/\/\___
+   _/\/\____/\/\__/\/\/\/\/\____/\/\/\/\/\______/\/\__/\/\/\/\/\____/\/\/\/\/\/\________/\/\________/\/\__/\/\__/\/\/\/\/\/\/\_
+  _/\/\____/\/\__/\/\__________________/\/\____/\/\__/\/\____/\/\__/\/\__/\/\/\__/\/\__/\/\________/\/\__/\/\__/\/\__/\__/\/\_
+ _/\/\/\/\/\____/\/\/\/\/\/\__/\/\/\/\/\______/\/\____/\/\/\/\____/\/\____/\/\__/\/\____/\/\/\/\____/\/\/\____/\/\______/\/\_
+____________________________________________________________________________________________________________________________</pre>
+    </div>
+    <h2>where software development meets design</h2>
+    <p>(c0min6 500n)</p>
+  </div>
+</body>
+</html>

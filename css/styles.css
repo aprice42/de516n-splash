@@ -21,7 +21,7 @@ body {
 }
 
 pre {
-  font-family: 'Roboto Mono', monospace;
+  font-family: monospace;
 }
 
 .wrapper {
@@ -38,7 +38,7 @@ h2 {
   font-size: 16px;
   margin: 0;
   opacity: 0;
-  animation: fadeIn 1s ease-in-out 2s forwards;
+  animation: fadeIn 1s ease-in-out 1s forwards;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   margin-block-start: 0;
@@ -59,7 +59,7 @@ h2 {
 }
 
 p {
-  animation: fadeIn 5s ease-in-out 2s forwards, hueShift 1s ease-in-out 2s infinite;
+  animation: fadeIn 5s ease-in-out 1s forwards, hueShift 1s ease-in-out 2s infinite;
   color: #fff;
   opacity: 0;
   margin-top: 8rem;

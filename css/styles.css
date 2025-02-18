@@ -22,6 +22,8 @@ body {
 
 pre {
   font-family: monospace;
+  white-space: pre;
+  word-wrap: normal;
 }
 
 .wrapper {

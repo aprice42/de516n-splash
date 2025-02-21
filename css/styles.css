@@ -1,34 +1,6 @@
-html {
-  font-size: 10px;
-
-  @media (min-width: 480px) {
-    font-size: 14px;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 22px;
-  }
-
-}
-
 body {
   background: #000;
   font-family: 'Roboto', sans-serif;
-}
-
-pre {
-  font-family: 'Roboto Mono', monospace;
-  white-space: pre;
-  word-wrap: normal;
-  line-height: 1.2;
-  letter-spacing: 0;
-  word-spacing: 0;
-  margin: 0;
-  padding: 0;
 }
 
 .wrapper {
@@ -40,314 +12,111 @@ pre {
   width: 100%;
 }
 
-h2 {
-  color: #fff;
-  font-size: 16px;
-  margin: 0;
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out 1s forwards;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  margin-block-start: 0;
-  margin-top: 25px;
-  text-align: center;
-
-  @media (min-width: 480px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 22px;
-  }
-}
-
-p {
-  animation: fadeIn 5s ease-in-out 1s forwards, hueShift 1s ease-in-out 2s infinite;
-  color: #fff;
-  opacity: 0;
-  margin-top: 8rem;
-  text-transform: uppercase;
-  letter-spacing: 7px;
-  font-family: 'Roboto Mono', monospace;
-  text-align: center;
-  font-size: 16px;
-}
-
-.ascii-art-wrapper {
+.de5-wrapper {
   display: flex;
   justify-content: center;
   align-items: end;
   flex-direction: column;
-  height: 200px;
   position: relative;
+  animation: hueShift 10s linear 2s infinite;
+  width: 110%;
+
+  @media (min-width: 480px) {
+    width: 90%;
+  }
 }
 
-.ascii-art {
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 5px;
-  background: linear-gradient(#a3d5ff, #7cbaff);
-  background: -webkit-linear-gradient(#a3d5ff, #7cbaff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: textGradientShift 1s,
-  zoomInZoomOut 1s ease-in-out 0s,
-  hueShift 10s ease-in-out 2s infinite;
+
+.animated-svg {
+  color: #7cbaff;
+  filter: hue-rotate(0deg);
+  animation:
+    zoomInZoomOut 750ms ease-in-out 0s,
+    hueShift 10s ease-in-out 2s infinite;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
   padding: 0;
-  opacity: 1;
   position: absolute;
   bottom: 0;
+  width: 100%;
 }
 
-.hide {
+h1 {
+  color: #efefef;
+  font-size: 16px;
+  margin: 0;
   opacity: 0;
-}
+  animation:
+    fadeIn 1s ease-in-out 1s forwards;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  margin-top: 5px;
+  text-align: center;
 
-.text-base {
-  font-size: .65rem;
-}
-
-.text-sm {
-  font-size: 1.125rem;
-}
-
-.text-md {
-  font-size: .5rem;
-}
-
-.text-lg {
-  font-size: 0.45rem;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
+  @media (min-width: 480px) {
+    margin-top: 20px;
+    font-size: 20px;
   }
-  50% {
-    transform: translateY(-10px);
+  @media (min-width: 768px) {
+    margin-top: 25px;
+    font-size: 25px;
+  }
+}
+
+p {
+  animation: fadeIn 5s ease-in-out 1s forwards, hueShift 20s ease-in-out 2s infinite;
+  color: #efefef;
+  opacity: 0;
+  margin-top: 48px;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-family: 'Roboto Mono', monospace;
+  text-align: center;
+  font-size: 14px;
+
+  @media (min-width: 480px) {
+    font-size: 16px;
+    margin-top: 35px;
+
   }
 
+  @media (min-width: 768px) {
+    margin-top: 60px;
+    font-size: 18px;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 @keyframes zoomInZoomOut {
-  0% {
-    transform: translateX(-50%) scale(1);
-  }
-  25% {
-    transform: translateX(-50%) scale(.35);
-  }
-  50% {
-    transform: translateX(-50%) scale(4);
-  }
-  100% {
-    transform: translateX(-50%) scale(1);
-  }
-
-}
-
-@keyframes textGradientShift {
-  0% {
-    background: linear-gradient(#a3d5ff, #7cbaff);
-    background: -webkit-linear-gradient(#a3d5ff, #7cbaff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  6.25% {
-    background: linear-gradient(#94ccff, #6eb2ff);
-    background: -webkit-linear-gradient(#94ccff, #6eb2ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  12.5% {
-    background: linear-gradient(#85c3ff, #5fa9ff);
-    background: -webkit-linear-gradient(#85c3ff, #5fa9ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  18.75% {
-    background: linear-gradient(#76baff, #50a0ff);
-    background: -webkit-linear-gradient(#76baff, #50a0ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  25% {
-    background: linear-gradient(#67b1ff, #4197ff);
-    background: -webkit-linear-gradient(#67b1ff, #4197ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  31.25% {
-    background: linear-gradient(#58a8ff, #328eff);
-    background: -webkit-linear-gradient(#58a8ff, #328eff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  37.5% {
-    background: linear-gradient(#499fff, #2375ff);
-    background: -webkit-linear-gradient(#499fff, #2375ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  43.75% {
-    background: linear-gradient(#3a96ff, #146cff);
-    background: -webkit-linear-gradient(#3a96ff, #146cff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  50% {
-    background: linear-gradient(#2b8dff, #0553ff);
-    background: -webkit-linear-gradient(#2b8dff, #0553ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  56.25% {
-    background: linear-gradient(#3a96ff, #146cff);
-    background: -webkit-linear-gradient(#3a96ff, #146cff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  62.5% {
-    background: linear-gradient(#499fff, #2375ff);
-    background: -webkit-linear-gradient(#499fff, #2375ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  68.75% {
-    background: linear-gradient(#58a8ff, #328eff);
-    background: -webkit-linear-gradient(#58a8ff, #328eff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  75% {
-    background: linear-gradient(#67b1ff, #4197ff);
-    background: -webkit-linear-gradient(#67b1ff, #4197ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  81.25% {
-    background: linear-gradient(#76baff, #50a0ff);
-    background: -webkit-linear-gradient(#76baff, #50a0ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  87.5% {
-    background: linear-gradient(#85c3ff, #5fa9ff);
-    background: -webkit-linear-gradient(#85c3ff, #5fa9ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  93.75% {
-    background: linear-gradient(#94ccff, #6eb2ff);
-    background: -webkit-linear-gradient(#94ccff, #6eb2ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  100% {
-    background: linear-gradient(#a3d5ff, #7cbaff);
-    background: -webkit-linear-gradient(#a3d5ff, #7cbaff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
+  0% {transform: translateX(-50%) scale(1) translateY(0px);}
+  25% {transform: translateX(-50%) scale(.135);}
+  50% {transform: translateX(-50%) scale(15) translateY(-40px);}
+  75% {transform: translateX(-50%) scale(.35) translateY(40px);}
+  100% {transform: translateX(-50%) scale(1) translateY(0px);}
 }
 
 @keyframes hueShift {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(360deg);
-  }
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
 }
 
-@keyframes rainbowFade {
-  0% {
-    background: linear-gradient(red, red);
-    background: -webkit-linear-gradient(red, red);
-    -webkit-background-clip: text;
-    filter: hue-rotate(0deg);
-  }
-  16.66% {
-    background: linear-gradient(orange, orange);
-    background: -webkit-linear-gradient(orange, orange);
-        -webkit-background-clip: text;
-  }
-  33.33% {
-    background: linear-gradient(yellow, yellow);
-    background: -webkit-linear-gradient(yellow, yellow);
-        -webkit-background-clip: text;
-  }
-  50% {
-    background: linear-gradient(green, green);
-    background: -webkit-linear-gradient(green, green);
-        -webkit-background-clip: text;
-  }
-  66.66% {
-    background: linear-gradient(blue, blue);
-    background: -webkit-linear-gradient(blue, blue);
-        -webkit-background-clip: text;
-  }
-  83.33% {
-    background: linear-gradient(indigo, indigo);
-    background: -webkit-linear-gradient(indigo, indigo);
-        -webkit-background-clip: text;
-  }
-  100% {
-    background: linear-gradient(violet, violet);
-    background: -webkit-linear-gradient(violet, violet);
-    -webkit-background-clip: text;
-    filter: hue-rotate(360deg);
-  }
+@keyframes rotate{
+  0%{ transform: rotate(0deg); }
+	100%{ transform: rotate(360deg); }
 }

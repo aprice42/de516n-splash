@@ -19,7 +19,7 @@ body {
   flex-direction: column;
   position: relative;
   animation: hueShift 10s linear 2s infinite;
-  width: 110%;
+  width: 105%;
 
   @media (min-width: 480px) {
     width: 90%;
@@ -104,11 +104,11 @@ p {
 }
 
 @keyframes zoomInZoomOut {
-  0% {transform: translateX(-50%) scale(1) translateY(0px);}
+  0% {transform: translateX(-50%) scale(1);}
   25% {transform: translateX(-50%) scale(.135);}
-  50% {transform: translateX(-50%) scale(15) translateY(-40px);}
-  75% {transform: translateX(-50%) scale(.35) translateY(40px);}
-  100% {transform: translateX(-50%) scale(1) translateY(0px);}
+  50% {transform: translateX(-50%) scale(2)}
+  75% {transform: translateX(-50%) scale(.35);}
+  100% {transform: translateX(-50%) scale(1);}
 }
 
 @keyframes hueShift {
